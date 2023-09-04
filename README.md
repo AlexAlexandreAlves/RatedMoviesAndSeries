@@ -1,4 +1,4 @@
-## A simple Project Build with TypeORM, created to studies about api's, ORM database, decorators and unit and integration tests.
+#### A simple project build with TypeORM, created to studies about api's, ORM database, decorators and unit and integration tests.
 
 Steps to run this project:
 
