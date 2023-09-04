@@ -1,4 +1,4 @@
-# Awesome Project Build with TypeORM
+## A simple Project Build with TypeORM, created to studies about api's, ORM database, decorators and unit and integration tests.
 
 Steps to run this project:
 
