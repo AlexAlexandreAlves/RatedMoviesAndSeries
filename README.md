@@ -1,11 +1,16 @@
 # Projeto Simples com TypeORM
 
-Este é um projeto simples criado com o TypeORM, desenvolvido para estudos sobre APIs, bancos de dados ORM, decorators e testes unitários e de integração.
+This is a simple project created by TypeORM, developed from APIs studies, ORM databases, decorators, unit and integrated tests.
 
-## Como executar o projeto
+## How to execute the project
 
-Siga os passos abaixo para executar o projeto em sua máquina:
+Follow the steps below to execute the project in your machine:
 
 1. Run `npm i` command
 2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+3. Run `npm run dev` command
+
+## Run migration generate
+
+1. Run `npm run migration:generate` command to first once to generate the migration
+2. Run `npm run migration:run` command to update database and tables
