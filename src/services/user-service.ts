@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { usersRepository } from "../../repositories/user-repository";
+import { usersRepository } from "../repositories/user-repository";
 
 export class UserService {
     async create(req: Request, res: Response) {

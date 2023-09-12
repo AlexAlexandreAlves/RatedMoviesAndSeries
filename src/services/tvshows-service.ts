@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { tvShowsRepository } from "../../repositories/tvshows-repository";
+import { tvShowsRepository } from "../repositories/tvshows-repository";
 
 export class TvShowService {
     async create(req: Request, res: Response) {

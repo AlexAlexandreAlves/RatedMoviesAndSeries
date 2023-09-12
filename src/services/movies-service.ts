@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { moviesRepository } from "../../repositories/movies-repository";
+import { moviesRepository } from "../repositories/movies-repository";
 
 export class MoviesService {
     async create(req: Request, res: Response) {

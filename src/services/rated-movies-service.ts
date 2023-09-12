@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ratedMovieRepository } from "../../repositories/rated-moveis-repository";
+import { ratedMovieRepository } from "../repositories/rated-moveis-repository";
 
 export class RatedMovieSerice {
     async create(req: Request, res: Response) {
@@ -21,6 +21,7 @@ export class RatedMovieSerice {
             return res.status(201).json(newRatedMovie)
 
         } catch (error) {
+            console.log(error)
             return res.status(500).json({ message: 'Internal Server Error' })
         }
     }
