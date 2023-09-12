@@ -1,5 +1,6 @@
 import express = require("express")
 import { AppDataSource } from "./data-source"
+import routes from "./routes/routes"
 
 
 AppDataSource.initialize().then(async () => {
@@ -8,9 +9,7 @@ AppDataSource.initialize().then(async () => {
 
     app.use(express.json())
 
-    app.get('/', (req, res) => {
-        return res.json("Application online!")
-    })
+    app.use(routes)
 
     return app.listen(3333)
 
