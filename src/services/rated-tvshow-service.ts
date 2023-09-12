@@ -6,7 +6,7 @@ export class RatedTvShowService {
         const { rating, description, rated_tvshow, rated_user } = req.body
 
         if (!rating) {
-            res.status(400).json({ message: 'The field name is necessary' })
+            res.status(400).json({ message: 'The field rating is necessary' })
         }
 
         try {

@@ -6,7 +6,7 @@ export class UserService {
         const { full_name, age, favorite_movie_gender } = req.body
 
         if (!full_name) {
-            res.status(400).json({ message: 'The field name is necessary' })
+            res.status(400).json({ message: 'The field full_name is necessary' })
         }
 
         try {
