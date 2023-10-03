@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ratedMovieRepository } from "../repositories/rated-moveis-repository";
 
-export class RatedMovieSerice {
+export class RatedMovieService {
     async create(req: Request, res: Response) {
         const { rating, description, rated_movie, rated_user } = req.body
 
