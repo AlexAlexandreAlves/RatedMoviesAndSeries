@@ -13,8 +13,7 @@ export class TvShowService {
             const newTvShow = tvShowsRepository.create({
                 name,
                 description,
-                year,
-                rated
+                year
             })
             await tvShowsRepository.save(newTvShow)
             

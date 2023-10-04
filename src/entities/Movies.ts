@@ -15,10 +15,6 @@ export class Movies {
     @Column()
     description: string
 
-    ///TODO: Remover esta coluna
-    @Column()
-    rated: number
-
     @CreateDateColumn()
     created_at: Date
 

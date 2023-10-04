@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm"
 import { User } from "./User"
 import { TvShows } from "./TvShow"
 
@@ -15,9 +15,11 @@ export class RatedTvShow {
     description: string
 
     @ManyToOne(() => User, (user) => user.ratedTVShows)
+    @JoinColumn({name: 'user_id'})
     user: User;
   
     @ManyToOne(() => TvShows, (tvShow) => tvShow.ratings)
+    @JoinColumn({name: 'tvshow_id'})
     tvShow: TvShows;
 
 }

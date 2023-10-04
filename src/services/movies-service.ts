@@ -13,8 +13,7 @@ export class MoviesService {
             const newMovie = moviesRepository.create({
                 name,
                 description,
-                year,
-                rated
+                year
             })
 
             await moviesRepository.save(newMovie)
