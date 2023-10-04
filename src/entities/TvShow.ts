@@ -11,7 +11,7 @@ export class TvShows {
     name: string
 
     @Column()
-    year: Date
+    year: string
 
     @Column()
     description: string
