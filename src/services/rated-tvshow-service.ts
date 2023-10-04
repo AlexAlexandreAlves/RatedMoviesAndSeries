@@ -13,8 +13,8 @@ export class RatedTvShowService {
             const rewRatedTvShow = ratedTvShowRepository.create({
                 rating,
                 description,
-                rated_tvshow,
-                rated_user
+                // rated_tvshow,
+                // rated_user
             })
 
             await ratedTvShowRepository.save(rewRatedTvShow)

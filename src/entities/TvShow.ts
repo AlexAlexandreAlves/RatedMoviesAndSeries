@@ -16,6 +16,7 @@ export class TvShows {
     @Column()
     description: string
 
+    //TODO: Remover esta coluna
     @Column()
     rated: number
 
@@ -24,5 +25,6 @@ export class TvShows {
 
     @UpdateDateColumn()
     updated_at: Date
+    ratings: any
 
 }

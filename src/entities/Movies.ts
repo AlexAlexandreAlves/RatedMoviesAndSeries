@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm"
-import { User } from "./User"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
 @Entity('movies')
 export class Movies {
@@ -16,6 +15,7 @@ export class Movies {
     @Column()
     description: string
 
+    //TODO: Remover esta coluna
     @Column()
     rated: number
 
@@ -24,5 +24,6 @@ export class Movies {
 
     @UpdateDateColumn()
     updated_at: Date
+    ratings: any
 
 }

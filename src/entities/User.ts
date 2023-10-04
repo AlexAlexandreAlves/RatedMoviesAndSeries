@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm"
-import { Movies } from "./Movies"
-import { TvShows } from "./TvShow"
+import { RatedMovie } from "./RatedMovie"
+import { RatedTvShow } from "./RatedTvShow"
 
 @Entity('users')
 export class User {
@@ -22,6 +22,12 @@ export class User {
 
     @UpdateDateColumn()
     updated_at: Date
+    
+    @OneToMany(() => RatedMovie, (ratedMovie) => ratedMovie.user)
+    ratedMovies: RatedMovie[];
+  
+    @OneToMany(() => RatedTvShow, (ratedTVShow) => ratedTVShow.user)
+    ratedTVShows: RatedTvShow[];
 
 }
 

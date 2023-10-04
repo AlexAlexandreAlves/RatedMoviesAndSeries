@@ -13,8 +13,8 @@ export class RatedMovieService {
             const newRatedMovie = ratedMovieRepository.create({
                 rating,
                 description,
-                rated_movie,
-                rated_user
+                // rated_movie,
+                // rated_user
             })
 
             await ratedMovieRepository.save(newRatedMovie)

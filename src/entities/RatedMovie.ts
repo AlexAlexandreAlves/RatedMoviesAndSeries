@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, OneToOne, ManyToOne, ManyToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 import { Movies } from "./Movies"
 import { User } from "./User"
 
@@ -14,12 +14,10 @@ export class RatedMovie {
     @Column()
     description: string
 
-    @ManyToMany(() => Movies)
-    @JoinColumn({ name: 'movie_id' })
-    rated_movie: Movies
-
-    @ManyToMany(() => User)
-    @JoinColumn({ name: 'user_id' })
-    rated_user: User
+    @ManyToOne(() => User, (user) => user.ratedMovies)
+    user: User;
+  
+    @ManyToOne(() => Movies, (movie) => movie.ratings)
+    movie: Movies;
 
 }
