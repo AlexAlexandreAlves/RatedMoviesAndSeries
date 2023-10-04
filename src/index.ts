@@ -1,6 +1,10 @@
 import express = require("express")
 import { AppDataSource } from "./data-source"
-import routes from "./routes/routes"
+import movies from "./routes/movies.routes"
+import tvShow from "./routes/tvshows.routes"
+import user from "./routes/user.routes"
+import ratedMovies from "./routes/ratedMovies.routes"
+import ratedTvShow from "./routes/ratedTvShow.routes"
 
 
 AppDataSource.initialize().then(async () => {
@@ -9,7 +13,11 @@ AppDataSource.initialize().then(async () => {
 
     app.use(express.json())
 
-    app.use(routes)
+    app.use(movies)
+    app.use(tvShow)
+    app.use(user)
+    app.use(ratedMovies)
+    app.use(ratedTvShow)
 
     return app.listen(3333)
 
