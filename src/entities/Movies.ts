@@ -15,7 +15,7 @@ export class Movies {
     @Column()
     description: string
 
-    //TODO: Remover esta coluna
+    ///TODO: Remover esta coluna
     @Column()
     rated: number
 
