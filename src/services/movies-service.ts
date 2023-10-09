@@ -54,4 +54,39 @@ export class MoviesService {
             return res.status(500).json({ message: 'Internal Server Error' });
         }
     }
+    
+    //TODO: Ajustar essa req
+    async update(req: Request, res: Response) {
+        const id = req.params; 
+        const { name, description, year } = req.body;
+
+        try {
+            const existingMovie = await moviesRepository.findOne(id);
+
+            if (!existingMovie) {
+                return res.status(404).json({ message: 'Movie not found' });
+            }
+
+            const updateFields = {
+                name,
+                description,
+                year,
+            };
+
+            
+            Object.keys(updateFields).forEach((field) => {
+                if (updateFields[field] !== undefined) {
+                    existingMovie[field] = updateFields[field];
+                }
+            });
+            
+            await moviesRepository.save(existingMovie);
+            
+            return res.status(200).json(existingMovie);
+
+        } catch (error) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
 }

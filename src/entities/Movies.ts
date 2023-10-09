@@ -28,9 +28,9 @@ export class Movies {
     updated_at: Date
     ratings: any
 
-    // constructor({ name, year, description }: IMovie) {
-    //     this.name = name,
-    //     this.year = year,
-    //     this.description = description
-    // }
+    constructor( name, year, description ) {
+        this.name = name,
+        this.year = year,
+        this.description = description
+    }
 }
