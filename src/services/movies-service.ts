@@ -3,7 +3,7 @@ import { moviesRepository } from "../repositories/movies-repository";
 
 export class MoviesService {
     async create(req: Request, res: Response) {
-        const { name, description, year, rated } = req.body
+        const { name, description, year } = req.body
 
         if (!name) {
             res.status(400).json({ message: 'The field name is necessary' })

@@ -23,4 +23,35 @@ export class UserService {
             return res.status(500).json({ message: 'Internal Server Error' })
         }
     }
+
+    async getOne(req: Request, res: Response) {
+        const id = req.params
+
+        try {
+            const user = await usersRepository.find(id);
+
+            if (!user) {
+                return res.status(404).json({ message: 'user not found' });
+            }
+
+            return res.status(200).json(user);
+        } catch (error) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
+    async getList(req: Request, res: Response) {
+
+        try {
+            const user = await usersRepository.find();
+
+            if (!user) {
+                return res.status(404).json({ message: 'user not found' });
+            }
+
+            return res.status(200).json(user);
+        } catch (error) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
 }

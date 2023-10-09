@@ -26,4 +26,36 @@ export class RatedMovieService {
             return res.status(500).json({ message: 'Internal Server Error' })
         }
     }
+
+    async getOne(req: Request, res: Response) {
+        const id = req.params
+
+        try {
+            const ratedMovie = await ratedMovieRepository.find(id);
+
+            if (!ratedMovie) {
+                return res.status(404).json({ message: 'Rated not found' });
+            }
+
+            return res.status(200).json(ratedMovie);
+        } catch (error) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
+    async getList(req: Request, res: Response) {
+
+        try {
+            const ratedMovie = await ratedMovieRepository.find();
+
+            if (!ratedMovie) {
+                return res.status(404).json({ message: 'Rated not found' });
+            }
+
+            return res.status(200).json(ratedMovie);
+        } catch (error) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
 }

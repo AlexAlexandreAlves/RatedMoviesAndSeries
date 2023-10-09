@@ -22,4 +22,11 @@ export class RatedTvShow {
     @JoinColumn({name: 'tvshow_id'})
     tvShow: TvShows;
 
+    constructor( rating, description, user, tvShow) {
+        this.rating = rating,
+        this.description = description,
+        this.user = user
+        this.tvShow = tvShow
+    }
+
 }
