@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { moviesRepository } from "../repositories/movies-repository";
 
 export class MoviesService {
+
     async create(req: Request, res: Response) {
         const { name, description, year } = req.body
 
@@ -54,37 +55,51 @@ export class MoviesService {
             return res.status(500).json({ message: 'Internal Server Error' });
         }
     }
-    
-    //TODO: Ajustar essa req
+
     async update(req: Request, res: Response) {
         const id = req.params; 
-        const { name, description, year } = req.body;
+        const body = req.body;
 
         try {
-            const existingMovie = await moviesRepository.findOne(id);
+            const movie = await moviesRepository.find(id);
 
-            if (!existingMovie) {
+            if (!movie) {
                 return res.status(404).json({ message: 'Movie not found' });
             }
 
-            const updateFields = {
-                name,
-                description,
-                year,
-            };
+            if (body.name) {
+                movie[0].name = body.name;
+            }
+            if (body.description) {
+                movie[0].description = body.description;
+            }
+            if (body.year) {
+                movie[0].year = body.year;
+            }
 
-            
-            Object.keys(updateFields).forEach((field) => {
-                if (updateFields[field] !== undefined) {
-                    existingMovie[field] = updateFields[field];
-                }
-            });
-            
-            await moviesRepository.save(existingMovie);
-            
-            return res.status(200).json(existingMovie);
+            await moviesRepository.save(movie);
+
+            return res.status(200).json(movie);
 
         } catch (error) {
+            console.log(error)
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
+    async delete(req: Request, res: Response) {
+        const id = req.params
+
+        try {
+            const movie = await moviesRepository.delete(id);
+
+            if (!movie) {
+                return res.status(404).json({ message: 'Movie not found' });
+            }
+
+            return res.status(200).json(movie);
+        } catch (error) {
+            console.log(error)
             return res.status(500).json({ message: 'Internal Server Error' });
         }
     }
