@@ -58,4 +58,49 @@ export class RatedMovieService {
         }
     }
 
+    async update(req: Request, res: Response) {
+        const id = req.params; 
+        const body = req.body;
+
+        try {
+            const rating = await ratedMovieRepository.find(id);
+
+            if (!rating) {
+                return res.status(404).json({ message: 'Rating not found' });
+            }
+
+            if (body.rating) {
+                rating[0].rating = body.rating;
+            }
+            if (body.description) {
+                rating[0].description = body.description;
+            }
+    
+            await ratedMovieRepository.save(rating);
+
+            return res.status(200).json(rating);
+
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
+    async delete(req: Request, res: Response) {
+        const id = req.params
+
+        try {
+            const rating = await ratedMovieRepository.delete(id);
+
+            if (!rating) {
+                return res.status(404).json({ message: 'Rating not found' });
+            }
+
+            return res.status(200).json(rating);
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+
 }

@@ -1,11 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
-// interface IMovie {
-//     name: string,
-//     year: string,
-//     description: string
-// }
-
 @Entity('movies')
 export class Movies {
 
@@ -28,9 +22,9 @@ export class Movies {
     updated_at: Date
     ratings: any
 
-    constructor( name, year, description ) {
-        this.name = name,
-        this.year = year,
-        this.description = description
-    }
+    // constructor( name, year, description ) {
+    //     this.name = name,
+    //     this.year = year,
+    //     this.description = description
+    // }
 }
