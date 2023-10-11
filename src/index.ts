@@ -10,6 +10,8 @@ import ratedTvShow from "./routes/ratedTvShow.routes"
 AppDataSource.initialize().then(async () => {
 
     const app = express()
+    const swaggerUi = require('swagger-ui-express')
+    const swaggerFile = require('../swagger.json')
 
     app.use(express.json())
 
@@ -18,6 +20,7 @@ AppDataSource.initialize().then(async () => {
     app.use(user)
     app.use(ratedMovies)
     app.use(ratedTvShow)
+    app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
     return app.listen(3333)
 
